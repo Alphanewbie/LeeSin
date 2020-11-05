@@ -1,5 +1,6 @@
 import requests
 import urllib.request
+import time
 from bs4 import BeautifulSoup
 
 urls = ["http://127.0.0.1:8000/mains"]
@@ -23,12 +24,13 @@ for url in urls:
                 exit()
             else:
                 print("Retry")
+                time.sleep(1)
     print(url + " - end")
     responce = requests.get(url + "/crawling")
     print(url + "/crawling - end")
     responce = requests.get(url + "/issue")
     print(url + "/issue - end")
     responce = requests.get(url + "/repository")
-    print(url + "/repository, end")
+    print(url + "/repository - end")
     responce = requests.get(url + "/setting")
     print(url + "/setting - end")

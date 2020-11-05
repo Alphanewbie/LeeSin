@@ -83,7 +83,7 @@ def insitejson(request):
         CountRepository.objects.values(
             'date', 'javascript', 'java', 'python', 'c', 'csharp',
             'cplus', 'ruby', 'typescript', 'php',
-        )
+        ).order_by('date')
     )
 
     langname = {
@@ -121,7 +121,7 @@ def issuejson(request):
         CountIssue.objects.values(
             'date', 'javascript', 'java', 'python', 'c', 'csharp',
             'cplus', 'ruby', 'typescript', 'php',
-        )
+        ).order_by('date')
     )
 
     langname = {
