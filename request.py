@@ -32,5 +32,5 @@ for url in urls:
     print(url + "/issue - end")
     responce = requests.get(url + "/repository")
     print(url + "/repository - end")
-    responce = requests.get(url + "/setting")
-    print(url + "/setting - end")
+    # responce = requests.get(url + "/setting")
+    # print(url + "/setting - end")
