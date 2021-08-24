@@ -11,26 +11,28 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+import yaml
 # import django_heroku
 # from decouple import config 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+stream = open('settings_data.yml', 'r')
+settings = yaml.load(stream, yaml.SafeLoader)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '6iP|cyaGrQ7CbP:ORMNeB4VTSK9e6qwM&sNdaCe;zn&3z4Qo./'
+SECRET_KEY = settings['SETTING']['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = settings['SETTING']['DEBUG']
 
 ALLOWED_HOSTS = [
     '.azurewebsites.net',
     'localhost', '127.0.0.1', '[::1]',
-    '.herokuapp.com',
     '.alphanewbie.site',
     # '*',
 ]
@@ -92,6 +94,18 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': settings['DB']['DB_ENGINE'],
+#         'NAME': settings['DB']['DB_NAME'],
+#         'USER': settings['DB']['DB_USER'],
+#         'PASSWORD': settings['DB']['DB_PASSWORD'],
+#         'HOST': settings['DB']['DB_HOST'],
+#         'PORT': settings['DB']['DB_PORT'],
+#     }
+# }
 
 
 # Password validation

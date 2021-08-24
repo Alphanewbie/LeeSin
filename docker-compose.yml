@@ -1,0 +1,30 @@
+version : '3'
+services:
+    nginx:
+        image: nginx:latest
+        volumes:
+            - ./config/nginx:/etc/nginx/conf.d
+        ports:
+            - "8000:8000"
+        depends_on:
+            - web
+    web:
+        build:
+            context : .
+            dockerfile : Dockerfile
+        command: gunicorn -w 4 --threads 4 LeeSin.wsgi:application --bind 0.0.0.0:80 --timeout 99999
+        expose:
+            - "80"
+        depends_on:
+            - db
+    db:
+        image: postgres:latest
+        restart: always
+        ports:
+            - "5432"
+        # volumes:
+        #     - /data0/postgresql/data:/var/lib/postgresql/data
+        environment:
+            - POSTGRES_DB=myname
+            - POSTGRES_USER=good
+            - POSTGRES_PASSWORD=happyhappy

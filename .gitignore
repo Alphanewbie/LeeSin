@@ -213,3 +213,7 @@ staticfiles/
 
 # 환경 설정 관련 파일(뒤에서 설정할 것)
 .env
+.DS_Store
+.gitignore
+Test.py
+request.py

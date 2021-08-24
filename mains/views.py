@@ -1,11 +1,8 @@
 import time
 import requests
 import os
-import pprint
-import math
-from datetime import datetime
 from matplotlib import pyplot as plt
-import matplotlib.dates as mdates
+from matplotlib import dates as mdates
 from matplotlib.ticker import ScalarFormatter, FormatStrFormatter
 
 from django.http import JsonResponse
@@ -14,7 +11,7 @@ from django.shortcuts import render
 from django.conf import settings
 
 from .models import *
-from . import main_crawling, model_crud
+from . import main_crawling
 
 # Create your views here.
 

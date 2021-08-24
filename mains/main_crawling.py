@@ -20,7 +20,7 @@ def init_setting():
     start_num = model_crud.get_start_number(site[0])
     model_crud.detail_null_stack()
     if start_num != 0:
-        crawling(site[0], start_num+1, start_num+50)
+        crawling(site[0], start_num+1, start_num+30)
     else:
         crawling(site[0], start_num+1, start_num+2100)
 
