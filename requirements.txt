@@ -15,7 +15,7 @@ django-extensions==3.0.8
 django-imagekit==4.0.2
 idna==2.10
 image==1.5.32
-ipython==7.19.0
+ipython==7.31.1
 ipython-genutils==0.2.0
 jedi==0.17.2
 kiwisolver==1.2.0
